@@ -1,6 +1,0 @@
-1. What is nested list? 
-List trong Python là một dạng dữ liệu cho phép lưu trữ nhiều kiểu dữ liệu khác nhau trong nó, và chũng ta có thể truy xuất đến các phần tử bên trong nó thông qua vị trí của phần tử đó trong list. Ở đây, nếu như bạn nào đã tìm hiểu qua một ngôn ngữ nào đó thì có thể coi list trong Python như một mảng tuần tự trong các ngôn ngữ khác.
-Để khai báo một list trong Python thì chúng ta sử dụng cặp dấu [] và bên trong là các giá trị của list.
-2. Can a list store both integers and strings in it? 
-Có thể lưu đc
-Vd: List1 = [1,"hello", [1,2,3]]
