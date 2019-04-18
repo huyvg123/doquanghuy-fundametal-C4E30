@@ -1,0 +1,6 @@
+Các kiến thức cần nhớ: 
++ HTML 
++ cách tổ chức và tạo thư mục làm web với Flask
++ Client và Server
++ Get và Post (Cấu trúc Get + form)
++ học thêm redirect

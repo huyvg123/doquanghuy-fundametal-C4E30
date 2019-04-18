@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Dang_nhap_tai_khoan</title>
+</head>
+<body>
+    <form method="POST">
+        <label>Username: </label>
+        <br>
+        <input name='Tai_Khoan' />
+        <br>
+        <label>Password: </label>
+        <br>
+        <input name='Mat_Khau' />
+        <br>
+        <input type='submit'value='submit' /> 
+    </form>
+        {% for users_data in data %}
+        {{users_data.Name}}
+        {{users_data.Cost}}
+        <br/>    
+        {% endfor %}
+</body>
+</html>
