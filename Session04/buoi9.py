@@ -1,4 +1,4 @@
-#vYaFKXSauCOe4CjC
+#vYaFKXSauCOe4CjCx
 from flask import Flask, render_template, request
 from db import get_all,add_food, get_food_by_name, update
 app = Flask(__name__)
@@ -19,7 +19,6 @@ def edit_food(name):
 def get_food(name):
     return render_template('buoi9.html',data=get_all())
 
-
 @app.route('/',methods=["POST"])
 def post_food():
     food_name = request.form.get('name')
@@ -29,6 +28,14 @@ def post_food():
 
     return render_template('buoi9.html',data=get_all())
 
+
+
+If click =true 
+append.div.div.div 
+'''
+Html 
+# doan cat
+'''     
 
 if __name__ == '__main__':
     app.run(host='127.0.0.1', port=5000, debug=True)

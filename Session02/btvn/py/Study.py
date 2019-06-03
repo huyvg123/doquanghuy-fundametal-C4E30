@@ -1,4 +1,4 @@
-from flask import Flask, template_rendered, request
+from flask import Flask, template_rendered, redirect
 app = Flask(__name__)
 
 @app.route('/about_me')
@@ -14,7 +14,7 @@ def about_me():
 
 @app.route('/school')
 def school(): 
-    return request(' http://techkids.vn ')
+    return redirectx(' http://techkids.vn ')
 
 if __name__ == '__main__' : 
     app.run(host='127.0.0.1',port=5000,debug=True)
