@@ -24,28 +24,59 @@ components.register = `
                     <span>Techkids Chat</span>
                 </div>
                 <div class="form-wrapper">
-                    <form>
+                    <form id="${config.FORM_REGISTER_ID}">
                         <div class="name-wrapper">
                             <div class="input-wrapper">
-                                <input type="text" name="firstname" placeholder="First Name">
+                                <input type="text" name="${config.INPUT_FIRST_NAME}" placeholder="First Name">
+                                <div class="error-message" id="${config.ERROR_FIRSTNAME_ID}"></div>
                             </div>
                             <div class="input-wrapper">
-                                <input type="text" name="lastname" placeholder="Last Name">
+                                <input type="text" name="${config.INPUT_LAST_NAME}" placeholder="Last Name">
+                                <div class="error-message" id="${config.ERROR_LASTNAME_ID}"></div>
                             </div>
                         </div>    
                         <div class="input-wrapper">
-                            <input type="email" name="email" placeholder="Email">
+                            <input type="email" name="${config.INPUT_EMAIL_NAME}" placeholder="Email">
+                            <div class="error-message" id="${config.ERROR_EMAIL_ID}"></div>
                         </div>
                         <div class="input-wrapper">
-                            <input type="password" name="password" placeholder="Password">
+                            <input type="password" name="${config.INPUT_PWD_NAME}" placeholder="Password">
+                            <div class="error-message" id="${config.ERROR_PWD_ID}"></div>
                         </div>    
                         <div class="input-wrapper">
-                            <input type="password" name="confirm password" placeholder="Confirm password">
+                            <input type="password" name="${config.INPUT_CONFIRM_PWD_NAME}" placeholder="Confirm password">
+                            <div class="error-message" id="${config.ERROR_CONFIRM_PWD_ID}"></div>
                         </div>
                         <div class="form-footer">
-                            <a href="#">Already have a account? Login</a>
-                            <button type="submit">Rigister</button>
+                            <a id="form-link" href="#">Already have a account? Login</a>
+                            <button id="form-btn" type="submit">Rigister</button>
 
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </section>
+`
+
+components.logIn =`
+<section class="log-in-container">
+            <div class="form-container">
+                <div class="logo">
+                    <span>Techkids Chat</span>
+                </div>
+                <div class="form-wrapper">
+                    <form id="form-log-in">  
+                        <div class="input-wrapper">
+                            <input type="email" name="${config.INPUT_EMAIL_NAME}" placeholder="Email">
+                            <div class="error-message" id="${config.ERROR_EMAIL_ID}"></div>
+                        </div>
+                        <div class="input-wrapper">
+                            <input type="password" name="${config.INPUT_PWD_NAME}" placeholder="Password">
+                            <div class="error-message" id="${config.ERROR_PWD_ID}"></div>
+                        </div>    
+                        <div class="form-footer">
+                            <a id="form-link" href="#">Not yes have an account? Register</a>
+                            <button id="form-btn" type="submit">Log In</button>
                         </div>
                     </form>
                 </div>

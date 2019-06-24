@@ -1,7 +1,8 @@
 window.onload = init
 
 function init() {
-    view.showComponents('register')
+    view.showComponents('logIn') // log in
+    console.log(window.firebase)
 }
 
 

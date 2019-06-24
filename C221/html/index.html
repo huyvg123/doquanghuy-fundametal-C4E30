@@ -4,9 +4,29 @@
 <head>
     <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../css/style.css" />
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/6.2.1/firebase-app.js"></script>
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#config-web-app -->
+
+<script>
+  // Your web app's Firebase configuration
+  var firebaseConfig = {
+    apiKey: "AIzaSyBwPHWGc724GuoZ7L1_c2Wcxf1PuWscvug",
+    authDomain: "ci22-on-class-huy.firebaseapp.com",
+    databaseURL: "https://ci22-on-class-huy.firebaseio.com",
+    projectId: "ci22-on-class-huy",
+    storageBucket: "",
+    messagingSenderId: "790100858305",
+    appId: "1:790100858305:web:a4b025f764caf2a4"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+</script>
     <!-- <meta description="This is an SPA website"/> -->
     
-
+    <script src="../js/config.js"></script>
     <script src="../js/components.js"></script>
     <script src="../js/controller.js"></script>
     <script src="../js/view.js"></script>
