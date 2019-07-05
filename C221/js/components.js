@@ -47,6 +47,8 @@ components.register = `
                             <input type="password" name="${config.INPUT_CONFIRM_PWD_NAME}" placeholder="Confirm password">
                             <div class="error-message" id="${config.ERROR_CONFIRM_PWD_ID}"></div>
                         </div>
+                        <div id ="${config.MESSAGE_ERROR_ID}"></div>
+                        <div id="${config.MESSAGE_SUCCESS_ID}"></div>
                         <div class="form-footer">
                             <a id="form-link" href="#">Already have a account? Login</a>
                             <button id="form-btn" type="submit">Rigister</button>
@@ -74,6 +76,7 @@ components.logIn =`
                             <input type="password" name="${config.INPUT_PWD_NAME}" placeholder="Password">
                             <div class="error-message" id="${config.ERROR_PWD_ID}"></div>
                         </div>    
+                        <div id="${config.MESSAGE_ERROR_ID}"></div>
                         <div class="form-footer">
                             <a id="form-link" href="#">Not yes have an account? Register</a>
                             <button id="form-btn" type="submit">Log In</button>
@@ -82,4 +85,29 @@ components.logIn =`
                 </div>
             </div>
         </section>
+`
+
+components.chat = `
+<section class="chat-container">
+    <div class="chat-header">
+        <h3> MindX </h3>
+        </div>
+        <div class="chat-content" id="${config.CHAT_CONTENT}">
+        </div>
+        <div>
+            <form id="${config.FORM_CHAT_ID}">
+                <div class="input-wrapper">
+                <input type="text" name="message">
+                </div>
+                <button class="chat-submit"> Send </button>
+            </form>
+    </div>
+    <div class="error-message" id="${config.MESSAGE_ERROR_ID}"></div>
+</section>
+`
+
+components.loading = `
+    <div class = "loading-container">
+    <img src = "https://www.widewalls.ch/ww-apps-lib/ww-apps-extensions/Travel/images/page_loader.gif" />
+    </div> 
 `

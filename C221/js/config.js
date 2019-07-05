@@ -1,6 +1,7 @@
 const config = {
     FORM_REGISTER_ID: 'form-register',
     FORM_LOG_IN_ID: 'form-log-in',
+    FORM_CHAT_ID: 'form-chat',
     
     INPUT_EMAIL_NAME: 'email',
     INPUT_PWD_NAME: 'password',
@@ -16,4 +17,9 @@ const config = {
 
     FORM_LINK_ID: 'form-link',
     FORM_BTN_ID: 'form-btn',
+
+    MESSAGE_ERROR_ID: 'message-error',
+    MESSAGE_SUCCESS_ID: 'message-success',
+
+    CHAT_CONTENT: 'chat-content'
 }

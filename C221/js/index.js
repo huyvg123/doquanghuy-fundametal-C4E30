@@ -1,9 +1,14 @@
 window.onload = init
+https://media0.giphy.com/media/3oEjI6SIIHBdRxXI40/giphy.gif
 
 function init() {
-    view.showComponents('logIn') // log in
-    console.log(window.firebase)
+    // view.showComponents('logIn') 
+    controller.initAuth()
+    // log in
+    // console.log(window.firebase.auth())
 }
+
+
 
 
 // const components = {

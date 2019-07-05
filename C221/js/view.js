@@ -21,39 +21,41 @@ view.showComponents = function (name) {
                     email: form.email.value,
                     password: form.password.value,
                     confirmPassword: form.confirmPassword.value
-                } 
-                if(registerInfo.firstname == '') {
+                }
+                // if(registerInfo.firstname == '') {
+                if (!registerInfo.firstname) {
                     view.setText(config.ERROR_FIRSTNAME_ID, 'Invalid firstname!')
-                }else {
+                } else {
                     view.setText(config.ERROR_FIRSTNAME_ID, '')
                 }
 
-                if(registerInfo.lastname == '') {
+                if (!registerInfo.lastname) {
                     view.setText(config.ERROR_LASTNAME_ID, 'Invalid lastname!')
-                }else {
+                } else {
                     view.setText(config.ERROR_LASTNAME_ID, '')
                 }
 
-                if(registerInfo.email== '') {
+                if (!registerInfo.email) {
                     view.setText(config.ERROR_EMAIL_ID, 'Invalid email!')
-                }else {
+                } else {
                     view.setText(config.ERROR_EMAIL_ID, '')
                 }
 
-                if(registerInfo.password == '') {
+                if (!registerInfo.password) {
                     view.setText(config.ERROR_PWD_ID, 'Invalid password!')
-                }else {
+                } else {
                     view.setText(config.ERROR_PWD_ID, '')
                 }
 
-                if(registerInfo.confirmPassword == '' || registerInfo.password != registerInfo.confirmPassword) {
+                if (!registerInfo.confirmPassword || registerInfo.password != registerInfo.confirmPassword) {
                     view.setText(config.ERROR_CONFIRM_PWD_ID, 'Invalid confirm password!')
-                }else {
+                } else {
                     view.setText(config.ERROR_CONFIRM_PWD_ID, '')
                 }
 
-                if(validateregisterInfo()) {
+                if (validateRegisterInfo(registerInfo)) {
                     //do register 
+                    controller.register(registerInfo)
                 }
             }
             break
@@ -78,32 +80,98 @@ view.showComponents = function (name) {
                     email: form.email.value,
                     password: form.password.value
                 }
-                if (logInInfo.email == '') {
+                if (!logInInfo.email) {
                     view.setText(config.ERROR_EMAIL_ID, 'Invalid email!')
                     // document.getElementById('error-email').innerText = "Invalid email"
-                }else {
+                } else {
                     view.setText(config.ERROR_EMAIL_ID, '')
                     // document.getElementById('error-email').innerText = ''
                 }
 
-                if (logInInfo.password == '') {
+                if (!logInInfo.password) {
                     view.setText(config.ERROR_PWD_ID, 'Invalid password!')
                     // console.log('Invalid password !')
-                }else {
+                } else {
                     view.setText(config.ERROR_PWD_ID, '')
                 }
 
-                if(validateLogInInfo(logInInfo)) {
+                if (validateLogInInfo(logInInfo)) {
                     //do log in
+                    controller.logIn(logInInfo)
                 }
             }
+            break
+        }
+        case 'chat': {
+            document.getElementById('app').innerHTML = components.chat
+            //events
+            let form = document.getElementById(config.FORM_CHAT_ID)
+            form.onsubmit = function (event) {
+                event.preventDefault()
+                let value = form.message.value
+                form.message.value = ''
+                models.creatMessage(value)
+                // //1. minh chat
+                // view.addMessage({
+                //     content: value,
+                //     owner: models.authUser.email
+                // })
+                // //2. bot chat
+                // setTimeout(botChat, 1000)
+                // form.message.value = ' '
+                // function botChat() {
+                //     view.addMessage({
+                //         content: value,
+                //         owner: 'bot'
+                // })
+                // }
+            }
+            break
+        }
+        case 'loading': {
+            document.getElementById('app').innerHTML = components.loading
             break
         }
     }
 }
 
-view.setText = function(id, message) {
+view.setText = function (id, message) {
     document.getElementById(id).innerText = message
 }
 // show compunent to screen
 // showComponents('register')
+
+view.addMessage = function (messageInfo) {
+    if (messageInfo.content && messageInfo.owner) {
+        let className = "chat-message" //"chat-message || "chat-message your"
+        if (messageInfo.owner == models.authUser.email) {
+            className += " your"
+        }
+        let html = `
+        <div class="${className}">
+        <span>${messageInfo.content}</span>
+        </div>
+        `
+
+        document.getElementById(config.CHAT_CONTENT).innerHTML += html
+        // document.getElementById(config.CHAT_CONTENT).innerHTML = html
+    }
+
+}
+
+function validateRegisterInfo(registerInfo) {
+    return registerInfo.email
+        && registerInfo.password
+        && registerInfo.firstname
+        && registerInfo.lastname
+        && registerInfo.confirmPassword == registerInfo.password
+}
+
+function validateLogInInfo(logInInfo) {
+    return logInInfo.email
+        && logInInfo.password
+}
+
+view.clearMessages = function () {
+    document.getElementById(config.CHAT_CONTENT).innerHTML = ''
+}
