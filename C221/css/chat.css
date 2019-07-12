@@ -1,9 +1,45 @@
-.chat-container {
-    height: 100vh;
-    padding: 70px 50px;
-    background: url() no-repeat center center ;
+.chat-screen {
+    display: flex;
+    margin-top: 38px;
 }
 
+.chat-screen>* {
+    height: calc(100vh - 38px);
+}
+
+.conversation-list {
+    width: 25%;
+    min-width: 200px;
+}
+
+.conversation-list ul li {
+    display: block;
+    height: 40px;
+    border: 1px solid black;
+}
+
+.conversation-list ul li:hover {
+    cursor: pointer;
+}
+
+.conversation-list .active-conversation {
+    background: #b2b2b2;
+}
+
+.chat-container {
+    width: 50%;
+    padding: 70px 50px;
+    min-width: 400px;
+}
+
+.conversation-details {
+    width: 25%;
+    min-width: 200px;
+}
+
+.conversation-details span {
+    font-style: italic; 
+}
 .chat-header {
     font-size: 32px;
     text-align: center;
@@ -44,4 +80,33 @@
 .chat-container form .input-wrapper {
     width: calc(100% - 140px);
     margin-right: 20px;
+}
+
+.main-nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 38px;
+    width: 100vw;
+    background: #4482ff;
+    color: #ffffff;
+    font-size: 16px;
+    display: flex;
+    justify-content: flex-end;
+    padding: 10px;
+}
+
+.main-nav>* {
+    margin-right: 5px;
+}
+
+.main-nav>button {
+    padding: 0px;
+    border: none;
+    height: 18px;
+}
+
+.main-nav>button:hover {
+    cursor: pointer;
+    background: #3371dd;
 }

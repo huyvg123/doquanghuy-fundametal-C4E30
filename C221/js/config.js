@@ -21,5 +21,12 @@ const config = {
     MESSAGE_ERROR_ID: 'message-error',
     MESSAGE_SUCCESS_ID: 'message-success',
 
-    CHAT_CONTENT: 'chat-content'
+    CHAT_CONTENT: 'chat-content',
+    NAV_SIGN_OUT_BTN: 'sign-out-vbtn',
+    CONVERSATION_LIST_ID: 'conversation-list',
+    CONVERSATION_DETAILS_ID: 'conversation-details',
+
+    NAV_NAME_LABEL:'name-label', 
+    ADD_CONVERSATION_BTN: 'add-conversation',
+    lEAVE_CONVERSATION_BTN: 'leave-conversation',
 }

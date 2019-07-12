@@ -105,8 +105,19 @@ view.showComponents = function (name) {
         case 'chat': {
             document.getElementById('app').innerHTML = components.chat
             //events
+            //dat ten len name-label
+            //dat ten cho su kien sign-out-btn
             let form = document.getElementById(config.FORM_CHAT_ID)
-            form.onsubmit = function (event) {
+            let nameLabel = document.getElementById(config.NAV_NAME_LABEL)
+            let signOutBtn = document.getElementById(config.NAV_SIGN_OUT_BTN)
+
+            form.onsubmit = formOnSubmit 
+            nameLabel.innerText = firebase.auth().currentUser.email
+            signOutBtn.onclick = signOut
+            
+            
+            
+            function formOnSubmit (event) {
                 event.preventDefault()
                 let value = form.message.value
                 form.message.value = ''
@@ -125,6 +136,11 @@ view.showComponents = function (name) {
                 //         owner: 'bot'
                 // })
                 // }
+            }
+
+            function signOut() {
+                firebase.auth().signOut()
+                models.clear()
             }
             break
         }

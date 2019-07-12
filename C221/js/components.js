@@ -60,7 +60,7 @@ components.register = `
         </section>
 `
 
-components.logIn =`
+components.logIn = `
 <section class="log-in-container">
             <div class="form-container">
                 <div class="logo">
@@ -88,22 +88,35 @@ components.logIn =`
 `
 
 components.chat = `
-<section class="chat-container">
-    <div class="chat-header">
-        <h3> MindX </h3>
+<nav class="main-nav">
+    <span id="${config.NAV_NAME_LABEL}">Doquanghuy8888@gmail.com</span>
+    <button id="${config.NAV_SIGN_OUT_BTN}">Sign out</button>
+</nav>
+<div class="chat-screen">   
+    <section class="conversation-list">
+        <ul id="${config.CONVERSATION_LIST_ID}></ul>
+        <button id="${config.ADD_CONVERSATION_BTN}">Add conversation</button>
+    </section>
+    <section class="chat-container">
+        <div class="chat-header">
+            <h3> MindX </h3>
         </div>
         <div class="chat-content" id="${config.CHAT_CONTENT}">
         </div>
         <div>
             <form id="${config.FORM_CHAT_ID}">
                 <div class="input-wrapper">
-                <input type="text" name="message">
+                    <input type="text" name="message">
                 </div>
                 <button class="chat-submit"> Send </button>
             </form>
-    </div>
-    <div class="error-message" id="${config.MESSAGE_ERROR_ID}"></div>
-</section>
+        </div>
+        <div class="error-message" id="${config.MESSAGE_ERROR_ID}"></div>
+    </section>
+    <section class="conversation-delitails" id="${config.CONVERSATION_DETAILS_ID}">
+    <button id="${config.lEAVE_CONVERSATION_BTN}">Leave conversation</button>
+    </section>
+</div>
 `
 
 components.loading = `

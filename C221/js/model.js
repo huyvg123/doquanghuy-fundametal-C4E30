@@ -15,7 +15,7 @@ models.loadConversations = function (email) {
         .collection('conversations')
         .where('users', 'array-contains', email)
         .onSnapshot(function (snapshot) {
-            if (!models.conversations.length) {
+            if (!models.conversations) {
                 // first loading
                 // let conversations = []
                 // for(let doc of snapshot.docs) {
@@ -34,24 +34,44 @@ models.loadConversations = function (email) {
                 }
             } else {
                 // doc change
-                let conversation = snapshot.docChanges().map(function (docChange) {
-                    if (docChange.type == 'modified') {
+                for(let docChange of snapshot.docChanges()) {
+                    if(docChange.type == 'modified') {
                         let conversation = docChange.doc.data()
+                        //title = '', createdAt = Date,
+                        //user = [email], messages = [message]
                         conversation.id = docChange.doc.id
-                        return conversation
+                        let foundIndex = models.conversations.findIndex(function(cvst) {
+                            return conversation.id = cvst.id
+                        })
+                        //update data vao du lieu trong models
+                        if(foundIndex >= 0) {
+                            models.conversations[foundIndex] = conversation
+                        }
+                        //update data len phan hien thi
+                        if(models.currentActiveConversation
+                                && conversation.id == models.currentActiveConversation.id) {
+                            models.setActiveConversation(conversation)
+                            }
                     }
-                }).forEach(function (conversation) {
-                    let foundIndex = models.conversations.findIndex(function (cvst) {
-                        return cvst.id == conversation
-                    })
-                    if (foundIndex >= 0) {
-                        models.conversations[foundIndex] = conversation
-                    }
-                    if (models.currentActiveConversation
-                        && models.currentActiveConversation.id == conversation.id) {
-                        models.setActiveConversation(conversation)
-                    }
-                })
+                }
+                // let conversation = snapshot.docChanges().map(function (docChange) {
+                //     if (docChange.type == 'modified') {
+                //         let conversation = docChange.doc.data()
+                //         conversation.id = docChange.doc.id
+                //         return conversation
+                //     }
+                // }).forEach(function (conversation) {
+                //     let foundIndex = models.conversations.findIndex(function (cvst) {
+                //         return cvst.id == conversation
+                //     })
+                //     if (foundIndex >= 0) {
+                //         models.conversations[foundIndex] = conversation
+                //     }
+                //     if (models.currentActiveConversation
+                //         && models.currentActiveConversation.id == conversation.id) {
+                //         models.setActiveConversation(conversation)
+                    // }
+                // })
             }
         })
 }
@@ -80,4 +100,10 @@ models.creatMessage = function(content) {
                 messages: firebase.firestore.FieldValue.arrayUnion(message)
             })
     }
+}
+
+models.clear = function() {
+    models.authUser = null
+    models.conversations = null
+    models.currentActiveConversation = null
 }
